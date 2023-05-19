@@ -81,13 +81,8 @@ void Cell::Set(const std::string& text)
     }
 }
 
-void Cell::Clear()
-{
-    // Reset вызывает дефолтный deleter
-    //impl_.reset(nullptr);
-
-    // Создаем новую реализацию типа "пустая ячейка"
-    impl_ = std::make_unique<EmptyImpl>();
+void Cell::Clear() {
+    Set("");
 }
 
 Cell::Value Cell::GetValue() const

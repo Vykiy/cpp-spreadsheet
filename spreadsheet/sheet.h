@@ -6,6 +6,7 @@
 #include <functional>
 #include <map>
 #include <set>
+#include <optional>
 
 class Sheet : public SheetInterface
 {
@@ -41,6 +42,7 @@ public:
     const std::set<Position> GetDependentCells(const Position& pos);
     // ������� ��� ����������� ��� ������ pos.
     void DeleteDependencies(const Position& pos);
+    std::optional<std::string> CheckCircularDependencies(Position pos, const std::string& text);
 
 private:
     // ������ ��� ����� ����� ������� ��������� ����� (������ - ������ ��������� �� ���)
